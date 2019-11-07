@@ -24,7 +24,7 @@ const initialState = {
 export const Reducers = (state =initialState, action ) => {
     switch(action.type) {
       case ADD_FEATURE:
-        console.log(action.payload)
+        console.log("testing", action.payload)
       return {
         ...state,
         additionalPrice: (state.additionalPrice + action.payload.price),
