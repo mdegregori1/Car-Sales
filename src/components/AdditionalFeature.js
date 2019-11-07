@@ -2,25 +2,27 @@ import React from 'react';
 
 import { connect } from "react-redux";
 
+import { addFeature } from "../actions/";
+
 const AdditionalFeature = props => {
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
+      <button onClick={()=>props.addFeature(props.feature)}className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
 };
 
-const mapStateToProps = () => {
+const mapStateToProps = state => {
+    console.log('mapstatetoprops: ', state);
   return {
-
+    additionalPrice: state.additionalPrice, 
+    car: state.car,
+    additionalFeatures: state.additionalFeatures
 
   }
 }
 
-export default connect((mapStateToProps)=>{}, {})(AdditionalFeature);
+export default connect(mapStateToProps , {addFeature})(AdditionalFeature);
 
-// function is usually : mapStateToProps -> maps your state from redux to your props in the component
-
-//what props do i need? One : on click to add a feature 
