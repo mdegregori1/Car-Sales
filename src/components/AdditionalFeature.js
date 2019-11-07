@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { connect } from "react-redux";
+
 const AdditionalFeature = props => {
   return (
     <li>
@@ -10,4 +12,15 @@ const AdditionalFeature = props => {
   );
 };
 
-export default AdditionalFeature;
+const mapStateToProps = () => {
+  return {
+
+
+  }
+}
+
+export default connect((mapStateToProps)=>{}, {})(AdditionalFeature);
+
+// function is usually : mapStateToProps -> maps your state from redux to your props in the component
+
+//what props do i need? One : on click to add a feature 
